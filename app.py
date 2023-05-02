@@ -70,6 +70,9 @@ class AddProduct(Resource):
             item_vecs = pd.concat([item_vecs, row], ignore_index=True)
 
             item_vecs.to_csv('./database/database.csv', index=False, mode='w')
+
+            test = pd.read_csv(database_path)
+            print(test.iloc[-5:, :])
             return 'success', 200
 
         except Exception as e:
