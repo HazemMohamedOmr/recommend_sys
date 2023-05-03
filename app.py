@@ -81,7 +81,7 @@ class AddProduct(Resource):
 
 class Test(Resource):
     def get(self):
-        return 'tested Successfully', 200
+        return 'tested Successfully! yes!!', 200
 
 
     # APIs EndPoints
