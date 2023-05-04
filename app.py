@@ -20,6 +20,9 @@ scalerUser = load('./Scaling/user_scaler.bin')
 scalerTarget = load('./Scaling/target_scaler.bin')
 
 
+# TODO def function : Connect Database
+# TODO def function : Transform Product
+
 class Predict(Resource):
     def post(self):
         try:
@@ -28,7 +31,7 @@ class Predict(Resource):
 
             user_vec = np.array(user)
 
-            item_vecs = pd.read_csv(database_path)
+            item_vecs = pd.read_csv(database_path)  # TODO Change to DB Instance
             item_vecs = np.array(item_vecs)
 
             user_vecs = np.tile(user_vec, (len(item_vecs), 1))
@@ -61,7 +64,7 @@ class Predict(Resource):
 
 
 class AddProduct(Resource):
-    def post(self):
+    def post(self):  # TODO Change all the post method logic
         try:
             row = request.json
             row = pd.DataFrame(data=[row])
